@@ -1,10 +1,5 @@
-FROM python:3.9-slim
-
+FROM python:3.9
 WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-
 COPY . .
-
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080", "--workers", "4"]
+RUN pip install -r requirements.txt
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
