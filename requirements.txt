@@ -3,8 +3,7 @@ fastapi
 line-bot-sdk
 requests
 gunicorn
-uvicorn
-python-dotenv
+
 absl-py==2.1.0
 aenum==3.1.15
 aiohappyeyeballs==2.4.6
